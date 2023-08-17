@@ -112,7 +112,7 @@
     enable = true;
     # enableZshIntegration = true;
   };
-  prorams.git = {
+  programs.git = {
     enable = true;
     userName = "redredacted";
   };
