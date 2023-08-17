@@ -80,7 +80,10 @@
     # EDITOR = "emacs";
   };
 
-  programs.neovim.enable = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
   xdg.configFile.nvim = {
     source = builtins.fetchGit {
       url = "https://github.com/redredacted/nvimrc.git";
@@ -104,6 +107,18 @@
     enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true;
+  };
+  programs.zellij = {
+    enable = true;
+    # enableZshIntegration = true;
+  };
+  prorams.git = {
+    enable = true;
+    userName = "redredacted";
+  };
+  programs.lsd = {
+    enable = true;
+    enableAliases = true;
   };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
