@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -19,6 +19,11 @@
         "user@popdesk" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
+        };
+      };
+      nixosConfigurations = {
+        poptop = pkgs.lib.nixosSystem {
+          modules = [ ./configuration.nix ]; 
         };
       };
     };
